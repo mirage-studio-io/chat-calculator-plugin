@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "Calculator Plugin (service http)",
+  "name_for_model": "calculator",
+  "description_for_human": "Plugin for performing basic arithmetic operations like addition, subtraction, multiplication, division, power, and square root.",
+  "description_for_model": "Plugin for performing basic arithmetic operations like addition, subtraction, multiplication, division, power, and square root.",
+  "api": {
+    "type": "openapi",
+    "url": "https://chat-calculator-plugin.supportmirage.repl.co/openapi.json",
+    "is_user_authenticated": false
+  },
+  "auth": {
+    "type": "none"
+  },
+  "logo_url": "https://chat-calculator-plugin.supportmirage.repl.co/logo.png",
+  "contact_email": "support@mirage-studio.io",
+  "legal_info_url": "https://www.mirage-studio.io"
+}
