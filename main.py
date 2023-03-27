@@ -25,52 +25,53 @@ app = quart_cors.cors(Quart(__name__),
 #     return jsonify({"error": "Unauthorized"}), 401
 
 
-# Add a route to perform addition
-@app.route("/calculator/add/<float:a>/<float:b>", methods=["GET"])
+@app.route("/calculator/add/<path:a>/<path:b>", methods=["GET"])
 async def add(a, b):
-  result = a + b
+  result = float(a) + float(b)
   return jsonify({"result": result})
 
 
 # Add a route to perform subtraction
-@app.route("/calculator/subtract/<float:a>/<float:b>", methods=["GET"])
+@app.route("/calculator/subtract/<path:a>/<path:b>", methods=["GET"])
 async def subtract(a, b):
-  result = a - b
+  result = float(a) - float(b)
   return jsonify({"result": result})
 
 
 # Add a route to perform multiplication
-@app.route("/calculator/multiply/<float:a>/<float:b>", methods=["GET"])
+@app.route("/calculator/multiply/<path:a>/<path:b>", methods=["GET"])
 async def multiply(a, b):
-  result = a * b
+  result = float(a) * float(b)
   return jsonify({"result": result})
 
 
 # Add a route to perform division
-@app.route("/calculator/divide/<float:a>/<float:b>", methods=["GET"])
+@app.route("/calculator/divide/<path:a>/<path:b>", methods=["GET"])
 async def divide(a, b):
+  b = float(b)
   if b == 0:
     return jsonify({"error": "Division by zero is not allowed"}), 400
-  result = a / b
+  result = float(a) / b
   return jsonify({"result": result})
 
 
 # Add a route to find the power of a number
-@app.route("/calculator/power/<float:a>/<float:b>", methods=["GET"])
+@app.route("/calculator/power/<path:a>/<path:b>", methods=["GET"])
 async def power(a, b):
-  result = math.pow(a, b)
+  result = math.pow(float(a), float(b))
   return jsonify({"result": result})
 
 
 # Add a route to find the square root of a number
-@app.route("/calculator/sqrt/<float:a>", methods=["GET"])
+@app.route("/calculator/sqrt/<path:a>", methods=["GET"])
 async def sqrt(a):
+  a = float(a)
   if a < 0:
     return jsonify(
       {"error": "Square root of negative numbers is not supported"}), 400
   result = math.sqrt(a)
   return jsonify({"result": result})
-  
+
 
 @app.get("/logo.png")
 async def plugin_logo():
