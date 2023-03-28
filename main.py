@@ -88,15 +88,6 @@ async def plugin_manifest():
     return quart.Response(text, mimetype="text/json")
 
 
-@app.get("/openapi.yaml")
-async def openapi_spec():
-  host = request.headers['Host']
-  with open("openapi.yaml") as f:
-    text = f.read()
-    text = text.replace("PLUGIN_HOSTNAME", f"https://{host}")
-    return quart.Response(text, mimetype="text/yaml")
-
-
 @app.get("/openapi.json")
 async def openapi_spec_json():
   host = request.headers['Host']
