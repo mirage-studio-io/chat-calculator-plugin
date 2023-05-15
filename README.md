@@ -77,3 +77,5 @@ curl -X GET http://0.0.0.0:5002/calculator/power/2.0/3.0 \
 curl -X GET http://0.0.0.0:5002/calculator/sqrt/9.0 \
  -H 'Content-Type: application/json'
  ```
+ 
+ MIT License - Mirage Studio
